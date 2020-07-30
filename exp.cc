@@ -196,7 +196,7 @@ main (int argc, char *argv[])
   ApplicationContainer serverApps;
   for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
     {
-    std::cout << unit32_t(u / remoteHostContainer.GetN()) << std::endl;
+    std::cout << u_nit32_t(u / remoteHostContainer.GetN()) << std::endl;
     Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (uint32_t(u / remoteHostContainer.GetN()));
     std::cout << remoteHostAddr << std::endl;
 
