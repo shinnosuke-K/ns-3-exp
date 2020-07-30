@@ -190,6 +190,7 @@ main (int argc, char *argv[])
     std::cout << u << "\t"<< remoteHostAddr << std::endl;
   }
 
+  string add[] = {"1.0.0.2", "1.0.0.4"}
 
   // Install and start applications on UEs and remote host
   uint16_t dlPort = 1100;
@@ -199,7 +200,6 @@ main (int argc, char *argv[])
   ApplicationContainer serverApps;
   for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
     {
-    std::cout << u_int32_t(u % remoteHostContainer.GetN()) << std::endl;
     Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u_int32_t(u % remoteHostContainer.GetN()));
 
       if (!disableDl)
@@ -219,7 +219,9 @@ main (int argc, char *argv[])
           PacketSinkHelper ulPacketSinkHelper ("ns3::UdpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), ulPort));
           serverApps.Add (ulPacketSinkHelper.Install (remoteHost));
 
-          UdpClientHelper ulClient (remoteHostAddr, ulPort);
+          // UdpClientHelper ulClient (remoteHostAddr, ulPort);
+          UdpClientHelper ulClient (Ipv4Address(add[int(u%2)]), ulPort);
+
           ulClient.SetAttribute ("Interval", TimeValue (interPacketInterval));
           ulClient.SetAttribute ("MaxPackets", UintegerValue (1000000));
           clientApps.Add (ulClient.Install (ueNodes.Get(u)));
