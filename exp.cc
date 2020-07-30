@@ -136,7 +136,7 @@ main (int argc, char *argv[])
   // std::cout << 0 << std::endl;
 
 
-  Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (1);
+  // Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (1);
 
   Ipv4StaticRoutingHelper ipv4RoutingHelper;
 
@@ -195,6 +195,8 @@ main (int argc, char *argv[])
   ApplicationContainer serverApps;
   for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
     {
+    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (uint32_t(u / remoteHostContainer.GetN()));
+
       if (!disableDl)
         {
           PacketSinkHelper dlPacketSinkHelper ("ns3::UdpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), dlPort));
