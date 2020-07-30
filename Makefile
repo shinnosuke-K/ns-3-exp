@@ -1,4 +1,4 @@
 all:
-	cp exp.cpp /home/shin/ns-3.30/scratch/exp.cpp
+	cp exp.cc /home/shin/ns-3.30/scratch/exp.cc
 	cd /home/shin/ns-3.30
-	/home/shin/ns-3.30/waf --run scrath/exp --vis
+	/home/shin/ns-3.30/waf --run scratch/exp --vis
