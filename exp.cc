@@ -41,7 +41,7 @@ NS_LOG_COMPONENT_DEFINE ("LenaSimpleEpc");
 int
 main (int argc, char *argv[])
 {
-  uint16_t numNodePairs = 2;
+  uint16_t numNodePairs = 3;
   Time simTime = MilliSeconds (1100);
   double distance = 60.0;
   Time interPacketInterval = MilliSeconds (100);
