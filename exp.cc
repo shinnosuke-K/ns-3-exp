@@ -106,6 +106,8 @@ main (int argc, char *argv[])
   NetDeviceContainer internetDevices;
   Ipv4InterfaceContainer internetIpIfaces;
 
+  internet.Install (remoteHostContainer);
+
   for (uint16_t i = 0; i < remoteHostContainer.GetN(); i++)
   {
     std::cout << i <<  0 << std::endl;
@@ -113,8 +115,6 @@ main (int argc, char *argv[])
     remoteHost = remoteHostContainer.Get (i);
 
     std::cout << i <<  1 << std::endl;
-
-    internet.Install (remoteHostContainer);
 
     std::cout << i <<  2 << std::endl;
 
