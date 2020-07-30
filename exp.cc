@@ -125,12 +125,7 @@ main (int argc, char *argv[])
 
   }
 
-  int n[] = {1,4};
-  for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
-  {
-    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (n[u_int32_t(u/2)]);
-    std::cout << i << remoteHostAddr << std::endl;
-  }
+
 
 
 
@@ -192,6 +187,13 @@ main (int argc, char *argv[])
       // side effect: the default EPS bearer will be activated
     }
 
+
+  int n[] = {1,4};
+  for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
+  {
+    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (n[u_int32_t(u/2)]);
+    std::cout << i << remoteHostAddr << std::endl;
+  }
 
 
   // Install and start applications on UEs and remote host
