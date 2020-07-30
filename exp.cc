@@ -99,14 +99,16 @@ main (int argc, char *argv[])
   Ipv4AddressHelper ipv4h;
   ipv4h.SetBase ("1.0.0.0", "255.0.0.0");
 
+  InternetStackHelper internet;
+  NetDeviceContainer internetDevices;
+  Ipv4InterfaceContainer internetIpIfaces;
+
   for (uint16_t i = 0; i < remoteHostContainer.GetN(); i++)
   {
     Ptr<Node> remoteHost = remoteHostContainer.Get (i);
-    InternetStackHelper internet;
     internet.Install (remoteHostContainer);
-
-    NetDeviceContainer internetDevices = p2ph.Install (pgw, remoteHost);
-    Ipv4InterfaceContainer internetIpIfaces = ipv4h.Assign (internetDevices);
+    internetDevices = p2ph.Install (pgw, remoteHost);
+    internetIpIfaces = ipv4h.Assign (internetDevices);
 
   }
 
