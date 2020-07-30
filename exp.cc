@@ -200,7 +200,7 @@ main (int argc, char *argv[])
   ApplicationContainer serverApps;
   for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
     {
-    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u_int32_t(u % remoteHostContainer.GetN()));
+    // Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u_int32_t(u % remoteHostContainer.GetN()));
 
       if (!disableDl)
         {
