@@ -220,8 +220,14 @@ main (int argc, char *argv[])
           serverApps.Add (ulPacketSinkHelper.Install (remoteHost));
 
           // UdpClientHelper ulClient (remoteHostAddr, ulPort);
+          UdpClientHelper ulClient;
           std::cout << add[int(u%2)] << std::endl;
-          UdpClientHelper ulClient (Ipv4Address(&add[int(u%2)]), ulPort);
+          if (u%2 == 0) {
+            ulClient (Ipv4Address("1.0.0.2"), ulPort);
+          } else {
+            ulClient (Ipv4Address("1.0.0.4"), ulPort);
+          }
+
 
           ulClient.SetAttribute ("Interval", TimeValue (interPacketInterval));
           ulClient.SetAttribute ("MaxPackets", UintegerValue (1000000));
