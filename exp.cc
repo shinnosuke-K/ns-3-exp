@@ -120,10 +120,6 @@ main (int argc, char *argv[])
     std::cout << remoteHostAddr << std::endl;
   }
 
-
-
-
-
   // NetDeviceContainer internetDevices = p2ph.Install (pgw, remoteHost);
 
   // Ipv4AddressHelper ipv4h;
@@ -185,7 +181,7 @@ main (int argc, char *argv[])
 
   for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
   {
-    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (nu_int32_t(u%2));
+    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u_int32_t(u%2));
     std::cout << u << "\t"<< remoteHostAddr << std::endl;
   }
 
