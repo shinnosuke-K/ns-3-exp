@@ -219,9 +219,9 @@ main (int argc, char *argv[])
           PacketSinkHelper ulPacketSinkHelper ("ns3::UdpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), ulPort));
           serverApps.Add (ulPacketSinkHelper.Install (remoteHost));
 
-          UdpClientHelper ulClient (remoteHostAddr, ulPort);
+          // UdpClientHelper ulClient (remoteHostAddr, ulPort);
           std::cout << add[int(u%2)] << std::endl;
-          // UdpClientHelper ulClient (Ipv4Address(add[int(u%2)]), ulPort);
+          UdpClientHelper ulClient (Ipv4Address(add[int(u%2)]), ulPort);
 
           ulClient.SetAttribute ("Interval", TimeValue (interPacketInterval));
           ulClient.SetAttribute ("MaxPackets", UintegerValue (1000000));
