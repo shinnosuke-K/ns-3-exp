@@ -45,7 +45,7 @@ main (int argc, char *argv[])
 {
   uint16_t numNodePairs = 5;
   Time simTime = MilliSeconds (1100);
-  double distance = 60.0;
+  double distance = 20.0;
   Time interPacketInterval = MilliSeconds (100);
   bool useCa = false;
   bool disableDl = false;
