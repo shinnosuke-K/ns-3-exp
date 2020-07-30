@@ -128,7 +128,7 @@ main (int argc, char *argv[])
   // interface 0 is localhost, 1 is the p2p device
 
 
-  // Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (1);
+  Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (1);
 
   Ipv4StaticRoutingHelper ipv4RoutingHelper;
 
@@ -198,8 +198,6 @@ main (int argc, char *argv[])
   ApplicationContainer serverApps;
   for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
     {
-    // Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u_int32_t(u % remoteHostContainer.GetN()));
-
       if (!disableDl)
         {
           PacketSinkHelper dlPacketSinkHelper ("ns3::UdpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), dlPort));
