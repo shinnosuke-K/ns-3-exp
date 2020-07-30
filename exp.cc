@@ -192,7 +192,7 @@ main (int argc, char *argv[])
   for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
   {
     Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (n[u_int32_t(u/2)]);
-    std::cout << i << remoteHostAddr << std::endl;
+    std::cout << u << remoteHostAddr << std::endl;
   }
 
 
