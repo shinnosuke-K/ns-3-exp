@@ -64,8 +64,8 @@ main (int argc, char *argv[])
   // cmd.AddValue ("disablePl", "Disable data flows between peer UEs", disablePl);
   // cmd.Parse (argc, argv);
 
-  // ConfigStore inputConfig;
-  // inputConfig.ConfigureDefaults ();
+  ConfigStore inputConfig;
+  inputConfig.ConfigureDefaults ();
 
   // // parse again so you can override default values from the command line
   // cmd.Parse(argc, argv);
