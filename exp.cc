@@ -84,19 +84,38 @@ main (int argc, char *argv[])
    // Create a single RemoteHost
   NodeContainer remoteHostContainer;
   remoteHostContainer.Create (2);
-  Ptr<Node> remoteHost = remoteHostContainer.Get (0);
-  InternetStackHelper internet;
-  internet.Install (remoteHostContainer);
+
+  // remoteHost 0
+  // Ptr<Node> remoteHost = remoteHostContainer.Get (0);
+  // InternetStackHelper internet;
+  // internet.Install (remoteHostContainer);
 
   // Create the Internet
   PointToPointHelper p2ph;
   p2ph.SetDeviceAttribute ("DataRate", DataRateValue (DataRate ("100Gb/s")));
   p2ph.SetDeviceAttribute ("Mtu", UintegerValue (1500));
   p2ph.SetChannelAttribute ("Delay", TimeValue (MilliSeconds (10)));
-  NetDeviceContainer internetDevices = p2ph.Install (pgw, remoteHost);
+
   Ipv4AddressHelper ipv4h;
   ipv4h.SetBase ("1.0.0.0", "255.0.0.0");
-  Ipv4InterfaceContainer internetIpIfaces = ipv4h.Assign (internetDevices);
+
+  for (uint16_t i = 0; i < remoteHostContainer.GetN(); i++)
+  {
+    Ptr<Node> remoteHost = remoteHostContainer.Get (i);
+    InternetStackHelper internet;
+    internet.Install (remoteHostContainer);
+
+    NetDeviceContainer internetDevices = p2ph.Install (pgw, remoteHost);
+    Ipv4InterfaceContainer internetIpIfaces = ipv4h.Assign (internetDevices);
+
+  }
+
+
+  // NetDeviceContainer internetDevices = p2ph.Install (pgw, remoteHost);
+
+  // Ipv4AddressHelper ipv4h;
+  // ipv4h.SetBase ("1.0.0.0", "255.0.0.0");
+  // Ipv4InterfaceContainer internetIpIfaces = ipv4h.Assign (internetDevices);
   // interface 0 is localhost, 1 is the p2p device
   Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (1);
 
