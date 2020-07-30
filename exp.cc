@@ -108,9 +108,20 @@ main (int argc, char *argv[])
 
   for (uint16_t i = 0; i < remoteHostContainer.GetN(); i++)
   {
+    std::cout << i <<  0 << std::endl;
+
     remoteHost = remoteHostContainer.Get (i);
+
+    std::cout << i <<  1 << std::endl;
+
     internet.Install (remoteHostContainer);
+
+    std::cout << i <<  2 << std::endl;
+
     internetDevices = p2ph.Install (pgw, remoteHost);
+
+    std::cout << i <<  3 << std::endl;
+
     internetIpIfaces = ipv4h.Assign (internetDevices);
   }
 
@@ -122,7 +133,7 @@ main (int argc, char *argv[])
   // Ipv4InterfaceContainer internetIpIfaces = ipv4h.Assign (internetDevices);
   // interface 0 is localhost, 1 is the p2p device
 
-  std::cout << 0 << std::endl;
+  // std::cout << 0 << std::endl;
 
 
   Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (1);
