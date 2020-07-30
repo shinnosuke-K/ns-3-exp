@@ -122,7 +122,7 @@ main (int argc, char *argv[])
 
     internetIpIfaces = ipv4h.Assign (internetDevices);
 
-    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (1);
+    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (i);
     std::cout << i << remoteHostAddr << std::endl;
   }
 
