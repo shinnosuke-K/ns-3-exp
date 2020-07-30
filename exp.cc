@@ -50,7 +50,7 @@ main (int argc, char *argv[])
   bool disableUl = false;
   bool disablePl = false;
 
-  // Command line arguments
+  // // Command line arguments
   // CommandLine cmd;
   // cmd.AddValue ("numNodePairs", "Number of eNodeBs + UE pairs", numNodePairs);
   // cmd.AddValue ("simTime", "Total duration of the simulation", simTime);
@@ -63,10 +63,10 @@ main (int argc, char *argv[])
   // cmd.Parse (argc, argv);
 
   // ConfigStore inputConfig;
-  inputConfig.ConfigureDefaults ();
+  // inputConfig.ConfigureDefaults ();
 
-  // parse again so you can override default values from the command line
-  cmd.Parse(argc, argv);
+  // // parse again so you can override default values from the command line
+  // cmd.Parse(argc, argv);
 
   if (useCa)
    {
