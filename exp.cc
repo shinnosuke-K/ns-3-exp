@@ -186,7 +186,7 @@ main (int argc, char *argv[])
   }
 
   for (uint32_t u = 0; u < remoteHostContainer.GetN(); ++u) {
-    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress ((u);
+    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u);
     std::cout << u << "\t"<< remoteHostAddr << std::endl;
   }
 
