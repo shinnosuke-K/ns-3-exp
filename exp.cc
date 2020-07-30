@@ -52,23 +52,23 @@ main (int argc, char *argv[])
   bool disableUl = false;
   bool disablePl = false;
 
-  // // Command line arguments
-  // CommandLine cmd;
-  // cmd.AddValue ("numNodePairs", "Number of eNodeBs + UE pairs", numNodePairs);
-  // cmd.AddValue ("simTime", "Total duration of the simulation", simTime);
-  // cmd.AddValue ("distance", "Distance between eNBs [m]", distance);
-  // cmd.AddValue ("interPacketInterval", "Inter packet interval", interPacketInterval);
-  // cmd.AddValue ("useCa", "Whether to use carrier aggregation.", useCa);
-  // cmd.AddValue ("disableDl", "Disable downlink data flows", disableDl);
-  // cmd.AddValue ("disableUl", "Disable uplink data flows", disableUl);
-  // cmd.AddValue ("disablePl", "Disable data flows between peer UEs", disablePl);
-  // cmd.Parse (argc, argv);
+  // Command line arguments
+  CommandLine cmd;
+  cmd.AddValue ("numNodePairs", "Number of eNodeBs + UE pairs", numNodePairs);
+  cmd.AddValue ("simTime", "Total duration of the simulation", simTime);
+  cmd.AddValue ("distance", "Distance between eNBs [m]", distance);
+  cmd.AddValue ("interPacketInterval", "Inter packet interval", interPacketInterval);
+  cmd.AddValue ("useCa", "Whether to use carrier aggregation.", useCa);
+  cmd.AddValue ("disableDl", "Disable downlink data flows", disableDl);
+  cmd.AddValue ("disableUl", "Disable uplink data flows", disableUl);
+  cmd.AddValue ("disablePl", "Disable data flows between peer UEs", disablePl);
+  cmd.Parse (argc, argv);
 
   ConfigStore inputConfig;
   inputConfig.ConfigureDefaults ();
 
-  // // parse again so you can override default values from the command line
-  // cmd.Parse(argc, argv);
+  // parse again so you can override default values from the command line
+  cmd.Parse(argc, argv);
 
   if (useCa)
    {
