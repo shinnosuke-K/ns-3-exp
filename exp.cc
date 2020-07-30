@@ -85,7 +85,7 @@ main (int argc, char *argv[])
 
    // Create a single RemoteHost
   NodeContainer remoteHostContainer;
-  remoteHostContainer.Create (2);
+  remoteHostContainer.Create (3);
 
   // remoteHost 0
   // Ptr<Node> remoteHost = remoteHostContainer.Get (0);
