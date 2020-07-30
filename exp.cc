@@ -108,12 +108,10 @@ main (int argc, char *argv[])
 
   for (uint16_t i = 0; i < remoteHostContainer.GetN(); i++)
   {
-    std::cout << i << std::endl;
     remoteHost = remoteHostContainer.Get (i);
     internet.Install (remoteHostContainer);
     internetDevices = p2ph.Install (pgw, remoteHost);
     internetIpIfaces = ipv4h.Assign (internetDevices);
-
   }
 
 
@@ -128,6 +126,9 @@ main (int argc, char *argv[])
   Ipv4StaticRoutingHelper ipv4RoutingHelper;
   Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (remoteHost->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.0"), Ipv4Mask ("255.0.0.0"), 1);
+
+  std::cout << 0 << std::endl;
+
 
   NodeContainer ueNodes;
   NodeContainer enbNodes;
