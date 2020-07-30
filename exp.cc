@@ -49,7 +49,7 @@ main (int argc, char *argv[])
   Time interPacketInterval = MilliSeconds (100);
   bool useCa = false;
   bool disableDl = false;
-  bool disableUl = false;
+  bool disableUl = true;
   bool disablePl = false;
 
   // Command line arguments
