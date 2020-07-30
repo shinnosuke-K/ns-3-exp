@@ -83,7 +83,7 @@ main (int argc, char *argv[])
 
    // Create a single RemoteHost
   NodeContainer remoteHostContainer;
-  remoteHostContainer.Create (1);
+  remoteHostContainer.Create (2);
   Ptr<Node> remoteHost = remoteHostContainer.Get (0);
   InternetStackHelper internet;
   internet.Install (remoteHostContainer);
