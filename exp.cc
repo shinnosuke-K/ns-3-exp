@@ -121,6 +121,7 @@ main (int argc, char *argv[])
     std::cout << i <<  2 << std::endl;
 
     internetIpIfaces = ipv4h.Assign (internetDevices);
+    std::cout << i << internetIpIfaces.GetAddress (1) << std::endl;
   }
 
 
@@ -131,8 +132,6 @@ main (int argc, char *argv[])
   // ipv4h.SetBase ("1.0.0.0", "255.0.0.0");
   // Ipv4InterfaceContainer internetIpIfaces = ipv4h.Assign (internetDevices);
   // interface 0 is localhost, 1 is the p2p device
-
-  // std::cout << 0 << std::endl;
 
 
   // Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (1);
@@ -185,6 +184,7 @@ main (int argc, char *argv[])
       // side effect: the default EPS bearer will be activated
     }
 
+  std::cout << internetIpIfaces.Get
 
   // Install and start applications on UEs and remote host
   uint16_t dlPort = 1100;
