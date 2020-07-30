@@ -116,11 +116,9 @@ main (int argc, char *argv[])
 
     std::cout << i <<  1 << std::endl;
 
-    std::cout << i <<  2 << std::endl;
-
     internetDevices = p2ph.Install (pgw, remoteHost);
 
-    std::cout << i <<  3 << std::endl;
+    std::cout << i <<  2 << std::endl;
 
     internetIpIfaces = ipv4h.Assign (internetDevices);
   }
@@ -196,8 +194,8 @@ main (int argc, char *argv[])
   ApplicationContainer serverApps;
   for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
     {
-    std::cout << u_int32_t(u / remoteHostContainer.GetN()) << std::endl;
-    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (uint32_t(u / remoteHostContainer.GetN()));
+    std::cout << u_int32_t(u % remoteHostContainer.GetN()) << std::endl;
+    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u_int32_t(u % remoteHostContainer.GetN()));
     std::cout << remoteHostAddr << std::endl;
 
       if (!disableDl)
