@@ -85,7 +85,7 @@ main (int argc, char *argv[])
 
    // Create a single RemoteHost
   NodeContainer remoteHostContainer;
-  remoteHostContainer.Create (3);
+  remoteHostContainer.Create (1);
 
   // remoteHost 0
   // Ptr<Node> remoteHost = remoteHostContainer.Get (0);
@@ -190,8 +190,6 @@ main (int argc, char *argv[])
     std::cout << u << "\t"<< remoteHostAddr << std::endl;
   }
 
-  std::string add[] = {"1.0.0.2", "1.0.0.4"};
-
   // Install and start applications on UEs and remote host
   uint16_t dlPort = 1100;
   uint16_t ulPort = 2000;
@@ -219,25 +217,10 @@ main (int argc, char *argv[])
           PacketSinkHelper ulPacketSinkHelper ("ns3::UdpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), ulPort));
           serverApps.Add (ulPacketSinkHelper.Install (remoteHost));
 
-          // UdpClientHelper ulClient (remoteHostAddr, ulPort);
-
-          std::cout << add[int(u%2)] << std::endl;
-          if (u%2 == 0) {
-            UdpClientHelper ulClient (Ipv4Address("1.0.0.2"), ulPort);
-            ulClient.SetAttribute ("Interval", TimeValue (interPacketInterval));
-            ulClient.SetAttribute ("MaxPackets", UintegerValue (1000000));
-            clientApps.Add (ulClient.Install (ueNodes.Get(u)));
-          } else {
-            UdpClientHelper ulClient (Ipv4Address("1.0.0.4"), ulPort);
-            ulClient.SetAttribute ("Interval", TimeValue (interPacketInterval));
-            ulClient.SetAttribute ("MaxPackets", UintegerValue (1000000));
-            clientApps.Add (ulClient.Install (ueNodes.Get(u)));
-          }
-
-
-          // ulClient.SetAttribute ("Interval", TimeValue (interPacketInterval));
-          // ulClient.SetAttribute ("MaxPackets", UintegerValue (1000000));
-          // clientApps.Add (ulClient.Install (ueNodes.Get(u)));
+          UdpClientHelper ulClient (remoteHostAddr, ulPort);
+          ulClient.SetAttribute ("Interval", TimeValue (interPacketInterval));
+          ulClient.SetAttribute ("MaxPackets", UintegerValue (1000000));
+          clientApps.Add (ulClient.Install (ueNodes.Get(u)));
         }
 
       if (!disablePl && numNodePairs > 1)
