@@ -235,6 +235,8 @@ main (int argc, char *argv[])
         }
     }
 
+  std::cout << 0 << std::endl;
+
   serverApps.Start (MilliSeconds (500));
   clientApps.Start (MilliSeconds (500));
   lteHelper->EnableTraces ();
