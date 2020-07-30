@@ -28,6 +28,8 @@
 #include "ns3/lte-module.h"
 //#include "ns3/gtk-config-store.h"
 
+#include <iostream>
+
 using namespace ns3;
 
 /**
@@ -106,6 +108,7 @@ main (int argc, char *argv[])
 
   for (uint16_t i = 0; i < remoteHostContainer.GetN(); i++)
   {
+    std::cout << i << std::endl;
     remoteHost = remoteHostContainer.Get (i);
     internet.Install (remoteHostContainer);
     internetDevices = p2ph.Install (pgw, remoteHost);
