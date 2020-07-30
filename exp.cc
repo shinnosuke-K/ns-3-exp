@@ -122,7 +122,7 @@ main (int argc, char *argv[])
 
     internetIpIfaces = ipv4h.Assign (internetDevices);
 
-    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (1);
+    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u);
     std::cout << remoteHostAddr << std::endl;
   }
 
@@ -189,7 +189,7 @@ main (int argc, char *argv[])
     }
 
 
-  int n[] = {0, 1};
+  int n[] = {2, 4};
   for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
   {
     Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (n[u_int32_t(u%2)]);
