@@ -190,7 +190,7 @@ main (int argc, char *argv[])
     std::cout << u << "\t"<< remoteHostAddr << std::endl;
   }
 
-  string add[] = {"1.0.0.2", "1.0.0.4"}
+  std::string add[] = {"1.0.0.2", "1.0.0.4"};
 
   // Install and start applications on UEs and remote host
   uint16_t dlPort = 1100;
