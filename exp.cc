@@ -116,8 +116,8 @@ main (int argc, char *argv[])
     internetIpIfaces = ipv4h.Assign (internetDevices);
 
     std::cout << i << std::endl;
-    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (i);
-    std::cout << remoteHostAddr << std::endl;
+    // Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (i);
+    // std::cout << remoteHostAddr << std::endl;
   }
 
   // NetDeviceContainer internetDevices = p2ph.Install (pgw, remoteHost);
