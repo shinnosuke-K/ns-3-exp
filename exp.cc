@@ -186,7 +186,7 @@ main (int argc, char *argv[])
       // side effect: the default EPS bearer will be activated
     }
 
-  std::cout << internetIpIfaces.Get
+
 
   // Install and start applications on UEs and remote host
   uint16_t dlPort = 1100;
