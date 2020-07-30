@@ -185,6 +185,11 @@ main (int argc, char *argv[])
     std::cout << u << "\t"<< remoteHostAddr << std::endl;
   }
 
+  for (uint32_t u = 0; u < remoteHostContainer.GetN(); ++u) {
+    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress ((u);
+    std::cout << u << "\t"<< remoteHostAddr << std::endl;
+  }
+
 
   // Install and start applications on UEs and remote host
   uint16_t dlPort = 1100;
@@ -196,7 +201,6 @@ main (int argc, char *argv[])
     {
     std::cout << u_int32_t(u % remoteHostContainer.GetN()) << std::endl;
     Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u_int32_t(u % remoteHostContainer.GetN()));
-    std::cout << remoteHostAddr << std::endl;
 
       if (!disableDl)
         {
