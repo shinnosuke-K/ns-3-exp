@@ -202,10 +202,12 @@ main (int argc, char *argv[])
   // = WifiHelper::Default();
   wifi.SetStandard (WIFI_PHY_STANDARD_80211n_5GHZ);
 
-  NqosWifiMacHelper wifiMac = NqosWifiMacHelper::Default();
+  NqosWifiMacHelper wifiMac;
+  wifiMac = NqosWifiMacHelper::Default();
   wifiMac.SetType("ns3::AdhocWifiMac");
 
-  YansWifiPhyHelper wifiPhy = YansWifiPhyHelper::Default();
+  YansWifiPhyHelper wifiPhy;
+  wifiPhy = YansWifiPhyHelper::Default();
 
   YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default();
   wifiPhy.SetChannel(wifiChannel.Create());
