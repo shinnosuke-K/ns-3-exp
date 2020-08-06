@@ -188,34 +188,31 @@ main (int argc, char *argv[])
 
   for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
   {
+    std::cout << u << std::endl;
     Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u);
     std::cout << u << "\t"<< remoteHostAddr << std::endl;
   }
 
-  for (uint32_t u = 0; u < remoteHostContainer.GetN(); ++u) {
+  for (uint32_t u = 0; u < remoteHostContainer.GetN(); ++u)
+  {
+    std::cout << u << std::endl;
     Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u);
     std::cout << u << "\t"<< remoteHostAddr << std::endl;
   }
 
   // start wifi
   WifiHelper wifi;
-  // = WifiHelper::Default();
   wifi.SetStandard (WIFI_PHY_STANDARD_80211n_5GHZ);
 
   WifiMacHelper wifiMac;
-  // wifiMac = NqosWifiMacHelper::Default();
   wifiMac.SetType("ns3::AdhocWifiMac");
 
   YansWifiPhyHelper wifiPhy;
-  // wifiPhy = YansWifiPhyHelper::Default();
-
   YansWifiChannelHelper wifiChannel;
-  // wifiChannel = YansWifiChannelHelper::Default();
   wifiPhy.SetChannel(wifiChannel.Create());
 
   NetDeviceContainer nodeDevices = wifi.Install(wifiPhy, wifiMac, ueNodes);
 
-  // InternetStackHelper internet;
   internet.Install(ueNodes);
   Ipv4AddressHelper ipAddrs;
   ipAddrs.SetBase("192.168.0.0", "255.255.255.0");
