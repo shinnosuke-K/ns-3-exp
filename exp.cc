@@ -190,14 +190,14 @@ main (int argc, char *argv[])
   {
     std::cout << u << std::endl;
     Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u);
-    std::cout << u << "\t"<< remoteHostAddr << std::endl;
+    std::cout << remoteHostAddr << std::endl;
   }
 
   for (uint32_t u = 0; u < remoteHostContainer.GetN(); ++u)
   {
     std::cout << u << std::endl;
     Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u);
-    std::cout << u << "\t"<< remoteHostAddr << std::endl;
+    std::cout << remoteHostAddr << std::endl;
   }
 
   // start wifi
