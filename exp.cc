@@ -215,7 +215,7 @@ main (int argc, char *argv[])
 
   NetDeviceContainer nodeDevices = wifi.Install(wifiPhy, wifiMac, ueNodes);
 
-  InternetStackHelper internet;
+  // InternetStackHelper internet;
   internet.Install(ueNodes);
   Ipv4AddressHelper ipAddrs;
   ipAddrs.SetBase("192.168.0.0", "255.255.255.0");
