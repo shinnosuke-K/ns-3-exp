@@ -115,24 +115,24 @@ main (int argc, char *argv[])
 
   internet.Install (remoteHostContainer);
 
-  for (uint16_t i = 0; i < remoteHostContainer.GetN(); i++)
-  {
+  // for (uint16_t i = 0; i < remoteHostContainer.GetN(); i++)
+  // {
 
-    remoteHost = remoteHostContainer.Get (i);
-    internetDevices = p2ph.Install (pgw, remoteHost);
-    internetIpIfaces = ipv4h.Assign (internetDevices);
+  //   remoteHost = remoteHostContainer.Get (i);
+  //   internetDevices = p2ph.Install (pgw, remoteHost);
+  //   internetIpIfaces = ipv4h.Assign (internetDevices);
 
-    std::cout << i << std::endl;
-    // Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (i);
-    // std::cout << remoteHostAddr << std::endl;
-  }
+  //   std::cout << i << std::endl;
+  //   // Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (i);
+  //   // std::cout << remoteHostAddr << std::endl;
+  // }
 
-  // NetDeviceContainer internetDevices = p2ph.Install (pgw, remoteHost);
+  NetDeviceContainer internetDevices = p2ph.Install (pgw, remoteHost);
 
-  // Ipv4AddressHelper ipv4h;
-  // ipv4h.SetBase ("1.0.0.0", "255.0.0.0");
-  // Ipv4InterfaceContainer internetIpIfaces = ipv4h.Assign (internetDevices);
-  // interface 0 is localhost, 1 is the p2p device
+  Ipv4AddressHelper ipv4h;
+  ipv4h.SetBase ("1.0.0.0", "255.0.0.0");
+  Ipv4InterfaceContainer internetIpIfaces = ipv4h.Assign (internetDevices);
+  interface 0 is localhost, 1 is the p2p device
 
 
   Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (1);
@@ -186,19 +186,19 @@ main (int argc, char *argv[])
     }
 
 
-  for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
-  {
-    std::cout << u << std::endl;
-    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u);
-    std::cout << remoteHostAddr << std::endl;
-  }
+  // for (uint32_t u = 0; u < ueNodes.GetN (); ++u)
+  // {
+  //   std::cout << u << std::endl;
+  //   Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u);
+  //   std::cout << remoteHostAddr << std::endl;
+  // }
 
-  for (uint32_t u = 0; u < remoteHostContainer.GetN(); ++u)
-  {
-    std::cout << u << std::endl;
-    Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u);
-    std::cout << remoteHostAddr << std::endl;
-  }
+  // for (uint32_t u = 0; u < remoteHostContainer.GetN(); ++u)
+  // {
+  //   std::cout << u << std::endl;
+  //   Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u);
+  //   std::cout << remoteHostAddr << std::endl;
+  // }
 
   // start wifi
   WifiHelper wifi;
