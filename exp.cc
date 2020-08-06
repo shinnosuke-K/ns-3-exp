@@ -197,7 +197,8 @@ main (int argc, char *argv[])
   }
 
   // start wifi
-  WifiHelper wifi = WifiHelper::Default();
+  WifiHelper wifi;
+  // = WifiHelper::Default();
   wifi.SetStandard (WIFI_PHY_STANDARD_80211n_5GHZ);
 
   NqosWifiMacHelper wifiMac = NqosWifiMacHelper::Default();
