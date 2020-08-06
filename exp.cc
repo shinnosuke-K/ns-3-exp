@@ -32,6 +32,7 @@
 // add code
 #include "ns3/network-module.h"
 #include "ns3/wifi-module.h"
+#include "ns3/wave-mac-helper.h"
 
 
 #include <iostream>
