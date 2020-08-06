@@ -28,6 +28,12 @@
 #include "ns3/lte-module.h"
 //#include "ns3/gtk-config-store.h"
 
+
+// add code
+#include "ns3/network-module.h"
+#include "ns3/wifi-module.h"
+
+
 #include <iostream>
 
 using namespace ns3;
@@ -189,6 +195,31 @@ main (int argc, char *argv[])
     Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (u);
     std::cout << u << "\t"<< remoteHostAddr << std::endl;
   }
+
+  // start wifi
+  WifiHelper wifi = WifiHelper::Default();
+  wifi.SetStandard (WIFI_PHY_STANDARD_80211n_5GHZ);
+
+  NqosWifiMacHelper wifiMac = NqosWifiMacHelper::Default();
+  wifiMac.SetType("ns3::AdhocWifiMac");
+
+  YansWifiPhyHelper wifiPhy = YansWifiPhyHelper::Default();
+
+  YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default();
+  wifiPhy.SetChannel(wifiChannel.Create());
+
+  NetDeviceContainer nodeDevices = wifi.Install(wifiPhy, wifiMac, ueNodes);
+
+  InternetStackHelper internet;
+  internet.Install(ueNodes);
+  Ipv4AddressHelper ipAddrs;
+  ipAddrs.SetBase("192.168.0.0", "255.255.255.0");
+  ipAddrs.Assign(nodeDevices);
+  // end wiri
+
+
+
+
 
   // Install and start applications on UEs and remote host
   uint16_t dlPort = 1100;
