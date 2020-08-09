@@ -33,6 +33,7 @@
 #include "ns3/network-module.h"
 #include "ns3/wifi-module.h"
 #include "ns3/wave-mac-helper.h"
+#include "ns3/stats-module.h"
 
 
 #include <iostream>
@@ -213,9 +214,9 @@ main (int argc, char *argv[])
   std::cout << 1 << std::endl;
 
   YansWifiPhyHelper wifiPhy;
-  YansWifiChannelHelper wifiChannel;
-  Ptr<YansWifiChannel> wifiChannelPtr = wifiChannel.Create ();
-  wifiPhy.SetChannel(wifiChannelPtr);
+  // YansWifiChannelHelper wifiChannel;
+  YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default ();
+  wifiPhy.SetChannel(wifiChannel.Create());
 
   std::cout << 2 << std::endl;
 
