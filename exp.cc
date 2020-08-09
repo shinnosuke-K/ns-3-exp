@@ -214,7 +214,8 @@ main (int argc, char *argv[])
 
   YansWifiPhyHelper wifiPhy;
   YansWifiChannelHelper wifiChannel;
-  wifiPhy.SetChannel(wifiChannel.Create());
+  Ptr<YansWifiChannel> wifiChannelPtr = wifiChannel.Create ();
+  wifiPhy.SetChannel(wifiChannelPtr);
 
   std::cout << 2 << std::endl;
 
