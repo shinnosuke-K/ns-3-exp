@@ -215,10 +215,14 @@ main (int argc, char *argv[])
 
   YansWifiPhyHelper wifiPhy;
   // YansWifiChannelHelper wifiChannel;
+  std::cout << 4 << std::endl;
+
   YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default ();
+  std::cout << 4 << std::endl;
+
   wifiPhy.SetChannel(wifiChannel.Create());
 
-  std::cout << 2 << std::endl;
+  std::cout << 4 << std::endl;
 
   NetDeviceContainer nodeDevices = wifi.Install(wifiPhy, wifiMac, ueNodes);
 
