@@ -129,7 +129,7 @@ main (int argc, char *argv[])
 
   internetDevices = p2ph.Install (pgw, remoteHost);
 
-  Ipv4AddressHelper ipv4h;
+  // Ipv4AddressHelper ipv4h;
   ipv4h.SetBase ("1.0.0.0", "255.0.0.0");
   internetIpIfaces = ipv4h.Assign (internetDevices);
   // interface 0 is localhost, 1 is the p2p device
