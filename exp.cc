@@ -200,6 +200,7 @@ main (int argc, char *argv[])
   //   std::cout << remoteHostAddr << std::endl;
   // }
 
+  std::cout << "wifi setup start" << std::endl;
   // start wifi
   WifiHelper wifi;
   wifi.SetStandard (WIFI_PHY_STANDARD_80211n_5GHZ);
@@ -218,6 +219,7 @@ main (int argc, char *argv[])
   ipAddrs.SetBase("192.168.0.0", "255.255.255.0");
   ipAddrs.Assign(nodeDevices);
   // end wiri
+  std::cout << "wifi setup end" << std::endl;
 
 
 
