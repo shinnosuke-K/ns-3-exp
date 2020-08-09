@@ -51,7 +51,7 @@ NS_LOG_COMPONENT_DEFINE ("LenaSimpleEpc");
 int
 main (int argc, char *argv[])
 {
-  uint16_t numNodePairs = 5;
+  uint16_t numNodePairs = 2;
   Time simTime = MilliSeconds (1100);
   double distance = 20.0;
   Time interPacketInterval = MilliSeconds (100);
@@ -237,9 +237,6 @@ main (int argc, char *argv[])
   ipAddrs.Assign(nodeDevices);
   // end wiri
   std::cout << "wifi setup end" << std::endl;
-
-
-
 
 
   // Install and start applications on UEs and remote host
