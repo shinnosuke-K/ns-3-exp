@@ -127,7 +127,7 @@ main (int argc, char *argv[])
   //   // std::cout << remoteHostAddr << std::endl;
   // }
 
-  NetDeviceContainer internetDevices = p2ph.Install (pgw, remoteHost);
+  internetDevices = p2ph.Install (pgw, remoteHost);
 
   Ipv4AddressHelper ipv4h;
   ipv4h.SetBase ("1.0.0.0", "255.0.0.0");
