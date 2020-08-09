@@ -220,6 +220,7 @@ main (int argc, char *argv[])
   wifiPhy.SetChannel(wifiChannel.Create());
 
   std::cout << 2 << std::endl;
+  std::cout << ueNodes.Begin() << ueNodes.End() << std::endl;
 
   NetDeviceContainer nodeDevices = wifi.Install(wifiPhy, wifiMac, ueNodes);
 
