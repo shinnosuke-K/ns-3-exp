@@ -108,7 +108,7 @@ main (int argc, char *argv[])
   Ipv4AddressHelper ipv4h;
   ipv4h.SetBase ("1.0.0.0", "255.0.0.0");
 
-  Ptr<Node> remoteHost;
+  Ptr<Node> remoteHost = remoteHostContainer.Get (0);
   InternetStackHelper internet;
   NetDeviceContainer internetDevices;
   Ipv4InterfaceContainer internetIpIfaces;
@@ -130,7 +130,6 @@ main (int argc, char *argv[])
   std::cout << 0 << std::endl;
 
   internetDevices = p2ph.Install (pgw, remoteHost);
-
   // Ipv4AddressHelper ipv4h;
   ipv4h.SetBase ("1.0.0.0", "255.0.0.0");
   internetIpIfaces = ipv4h.Assign (internetDevices);
