@@ -215,20 +215,25 @@ main (int argc, char *argv[])
 
   YansWifiPhyHelper wifiPhy;
   // YansWifiChannelHelper wifiChannel;
-  std::cout << 4 << std::endl;
-
   YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default ();
-  std::cout << 4 << std::endl;
 
   wifiPhy.SetChannel(wifiChannel.Create());
 
-  std::cout << 4 << std::endl;
+  std::cout << 2 << std::endl;
 
   NetDeviceContainer nodeDevices = wifi.Install(wifiPhy, wifiMac, ueNodes);
 
+  std::cout << 3 << std::endl;
+
   internet.Install(ueNodes);
+
+  std::cout << 4 << std::endl;
+
   Ipv4AddressHelper ipAddrs;
   ipAddrs.SetBase("192.168.0.0", "255.255.255.0");
+
+  std::cout << 5 << std::endl;
+
   ipAddrs.Assign(nodeDevices);
   // end wiri
   std::cout << "wifi setup end" << std::endl;
