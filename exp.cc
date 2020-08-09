@@ -127,7 +127,6 @@ main (int argc, char *argv[])
   //   // std::cout << remoteHostAddr << std::endl;
   // }
 
-  std::cout << 0 << std::endl;
 
   internetDevices = p2ph.Install (pgw, remoteHost);
   // Ipv4AddressHelper ipv4h;
@@ -135,15 +134,12 @@ main (int argc, char *argv[])
   internetIpIfaces = ipv4h.Assign (internetDevices);
   // interface 0 is localhost, 1 is the p2p device
 
-  std::cout << 1 << std::endl;
 
 
   Ipv4Address remoteHostAddr = internetIpIfaces.GetAddress (1);
   Ipv4StaticRoutingHelper ipv4RoutingHelper;
   Ptr<Ipv4StaticRouting> remoteHostStaticRouting = ipv4RoutingHelper.GetStaticRouting (remoteHost->GetObject<Ipv4> ());
   remoteHostStaticRouting->AddNetworkRouteTo (Ipv4Address ("7.0.0.0"), Ipv4Mask ("255.0.0.0"), 1);
-
-  std::cout << 2 << std::endl;
 
 
   NodeContainer ueNodes;
@@ -163,7 +159,6 @@ main (int argc, char *argv[])
   mobility.Install(enbNodes);
   mobility.Install(ueNodes);
 
-  std::cout << 4 << std::endl;
 
 
   // Install LTE Devices to the nodes
@@ -210,12 +205,18 @@ main (int argc, char *argv[])
   WifiHelper wifi;
   wifi.SetStandard (WIFI_PHY_STANDARD_80211n_5GHZ);
 
+  std::cout << 0 << std::endl;
+
   WifiMacHelper wifiMac;
   wifiMac.SetType("ns3::AdhocWifiMac");
+
+  std::cout << 1 << std::endl;
 
   YansWifiPhyHelper wifiPhy;
   YansWifiChannelHelper wifiChannel;
   wifiPhy.SetChannel(wifiChannel.Create());
+
+  std::cout << 2 << std::endl;
 
   NetDeviceContainer nodeDevices = wifi.Install(wifiPhy, wifiMac, ueNodes);
 
