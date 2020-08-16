@@ -223,7 +223,7 @@ main (int argc, char *argv[])
 
   std::cout << 3 << std::endl;
 
-  internet.Install(ueNodes);
+  // internet.Install(ueNodes);
 
   std::cout << 4 << std::endl;
 
