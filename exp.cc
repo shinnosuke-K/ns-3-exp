@@ -204,7 +204,7 @@ main (int argc, char *argv[])
   std::cout << "wifi setup start" << std::endl;
   // start wifi
   WifiHelper wifi;
-  wifi.SetStandard (WIFI_PHY_STANDARD_80211n_5GHZ);
+  // wifi.SetStandard (WIFI_PHY_STANDARD_80211n_5GHZ);
 
   std::cout << 0 << std::endl;
 
@@ -213,16 +213,13 @@ main (int argc, char *argv[])
 
   std::cout << 1 << std::endl;
 
-  YansWifiPhyHelper wifiPhy;
-  // YansWifiChannelHelper wifiChannel;
+  YansWifiPhyHelper wifiPhy = YansWifiPhyHelper::Default();
   YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default ();
 
   wifiPhy.SetChannel(wifiChannel.Create());
 
   std::cout << 2 << std::endl;
-  NodeContainer wifiNodes;
-  wifiNodes.Create(2);
-  NetDeviceContainer nodeDevices = wifi.Install(wifiPhy, wifiMac, wifiNodes);
+  NetDeviceContainer nodeDevices = wifi.Install(wifiPhy, wifiMac, ueNodes);
 
   std::cout << 3 << std::endl;
 
